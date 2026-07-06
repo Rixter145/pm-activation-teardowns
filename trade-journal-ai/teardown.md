@@ -80,12 +80,6 @@ As a **crypto trader evaluating journals**, I click **Get Started** expecting to
 
 ---
 
-## Proof (one line)
-
-At Microsoft Ads (Adslab), I cut partner onboarding from **1 month to 2 weeks** by redesigning self-service activation so users saw value before heavy integration — same class of problem as paywall + broker-connect sequencing.
-
----
-
 ## Links
 
 | Asset | URL |
