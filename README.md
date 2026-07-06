@@ -1,7 +1,5 @@
-# Deprecated — do not use
+# Trade Journal AI — Activation Teardown
 
-This monorepo exposed multiple company teardowns in one place. **Retired July 2026.**
+Public activation audit for **Trade Journal AI** only.
 
-Each activation teardown now lives in its **own public repo** (`activation-teardown-<company-slug>`).
-
-Do not link this repository in founder outreach.
+Read [teardown.md](./trade-journal-ai/teardown.md).
