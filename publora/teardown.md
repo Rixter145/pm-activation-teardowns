@@ -1,8 +1,6 @@
 # Publora — Activation Teardown
 
-**Author:** Ricardo Lo · **Date:** 2026-07-06 · **Company:** Publora (publora.com / app.publora.com)
-
-> PM activation teardown — Playwright audit 2026-07-06. For Serge Bulaev.
+**Publora** · publora.com · July 2026
 
 ---
 
@@ -12,31 +10,18 @@
 
 **Proposed fix:** Add an **intent fork at signup** ("Developer / agent" vs "Creator / scheduler"); route API-first users to **`/dashboard/api`** with a guided **create-key → copy curl → test post** flow before any OAuth. Default post-signup for PH/API traffic should not be the Channels empty state.
 
-**Artifact:** This doc + screenshots in `./screenshots/`
-
 ---
 
 ## Evidence
 
-| # | Step | Friction | Screenshot |
-|---|------|----------|------------|
-| 1 | Marketing homepage | `copy_confusion` | `screenshots/step_1b_homepage_agent_api_story.png` |
-| 2 | Post-signup Channels | `integration_wall` | `screenshots/step_2_connect_accounts_wall.png` |
-| 3 | Home dashboard | `white_canvas` | `screenshots/step_3_home_empty_dashboard.png` |
-| 4 | API page (reachable) | `time_to_value` | `screenshots/step_4_api_key_available.png` |
-| 5 | MCP page (reachable) | `time_to_value` | `screenshots/step_5_mcp_setup_available.png` |
-
-**Step 1 — Homepage:** Hero reads **"The Publishing API for the Agent Era"** — post to 10 platforms with one HTTPS call; MCP and REST API above the fold. **"3 accounts free forever."**
-
-**Step 2 — Signup (observed):** Left rail promises *"Connect your social accounts, schedule posts across all platforms, and start growing your audience in minutes"* — creator workflow, not API-first. Email/password signup is frictionless (no paywall).
-
-**Step 3 — Post-signup redirect:** Lands on **`/dashboard/accounts`** with **10 Connect buttons** (Instagram, Threads, TikTok, YouTube, LinkedIn, Mastodon, Bluesky, X, Telegram, Facebook). Empty state: *"Connect a channel to get started."* **0/3 channels** on free tier.
-
-**Step 4 — Home:** Stats all zero (connections, published, posts/week). *"No drafts yet"* with **Start writing** — no pointer to API key or MCP setup despite marketing positioning.
-
-**Step 5 — API (sidebar):** **+ Create New Key** available **without** connecting social first; curl/Node/Python examples ready. This is the fastest path to value for agent-era buyers but is **not** the default onboarding destination.
-
-**Step 6 — MCP (sidebar):** Cursor/Claude/Codex/OpenClaw setup chips + copy-paste `mcp.json` snippet referencing API key. Strong fit for Track 3 positioning; discoverability depends on user already knowing to look past Channels wall.
+| Step | What happened | Screenshot |
+|------|---------------|------------|
+| 1 | Homepage hero promises one HTTPS call to 10 platforms; MCP and REST API above the fold | [step_1b_homepage_agent_api_story.png](./screenshots/step_1b_homepage_agent_api_story.png) |
+| 2 | Signup sidebar frames creator workflow ("connect social accounts, schedule posts") — not API-first | — |
+| 3 | Post-signup redirect lands on Channels page with 10 OAuth connect buttons and empty state | [step_2_connect_accounts_wall.png](./screenshots/step_2_connect_accounts_wall.png) |
+| 4 | Home dashboard shows zero connections, zero published, no drafts — no pointer to API/MCP path | [step_3_home_empty_dashboard.png](./screenshots/step_3_home_empty_dashboard.png) |
+| 5 | API page lets you create a key without connecting social first — not the default onboarding route | [step_4_api_key_available.png](./screenshots/step_4_api_key_available.png) |
+| 6 | MCP setup with Cursor/Claude/Codex config is available in sidebar — requires finding API page first | [step_5_mcp_setup_available.png](./screenshots/step_5_mcp_setup_available.png) |
 
 ---
 
@@ -64,7 +49,7 @@ As a **builder evaluating Publora for agent publishing**, I land on a homepage a
 4. **Creator path** → `/dashboard/accounts` with **connect 1 channel to start** (not 10-up front)
 5. Home empty state → contextual card: *"No channels yet — paste this curl to test API"* OR *"Connect LinkedIn to schedule first post"*
 
-_Key changes:_
+**Key changes:**
 
 - Align signup copy with homepage for API traffic (or branch copy by entry URL/referrer)
 - Post-signup route by intent — stop sending all users to OAuth grid
@@ -79,15 +64,13 @@ _Key changes:_
 
 **Secondary:** Signup → first channel connected (creator cohort only)
 
-**How to measure:** Funnel events `signup_complete` → `api_key_created` → `api_request_success` vs `channel_connected`; segment by onboarding intent selection.
+**How to measure:** Funnel events signup complete → api key created → api request success vs channel connected; segment by onboarding intent selection
 
 ---
 
 ## Links
 
-| Asset | URL |
-|-------|-----|
-| Teardown (this doc) | https://github.com/rixter145/pm-activation-teardowns/blob/main/publora/teardown.md |
-| App signup | https://app.publora.com/signup |
+| Resource | URL |
+|----------|-----|
+| Signup | https://app.publora.com/signup |
 | API docs | https://docs.publora.com |
-| Founder LinkedIn | https://www.linkedin.com/in/sbulaev |

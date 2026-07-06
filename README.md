@@ -1,18 +1,15 @@
 # PM Activation Teardowns
 
-Public artifacts for **value-first founder outreach** — activation funnel audits shipped before asking for a conversation.
+Public activation funnel audits — problem, evidence, proposed fix.
 
-**Author:** [Ricardo Lo](https://ricardolo.online) · AI-enabled Sr PM
+**Author:** [Ricardo Lo](https://ricardolo.online)
 
 ## What this is
 
-Each folder is a self-contained teardown for one product:
+Each folder contains:
 
 - `teardown.md` — problem, evidence, proposed flow, metrics
-- `audit_*.json` — structured Playwright friction log
-- `screenshots/` — annotated activation captures
-
-These are **not** job applications. They're shipped work: "I walked your funnel, here's the fix."
+- `screenshots/` — activation captures
 
 ## Published teardowns
 

@@ -1,8 +1,6 @@
 # Trade Journal AI — Activation Teardown
 
-**Author:** Ricardo Lo · **Date:** 2026-07-06 · **Company:** Trade Journal AI (tradejournal.ai)
-
-> PM activation teardown — Playwright audit 2026-07-06. For Adam Hardegree.
+**Trade Journal AI** · tradejournal.ai · July 2026
 
 ---
 
@@ -12,28 +10,17 @@
 
 **Proposed fix:** Align all surfaces to **14-day money-back guarantee** (drop "7-day trial" copy); add a **CSV-import-first path** on signup so traders see journal value before broker API connect; optional **reverse trial** (card on file, charge day 8) if you want trial language back.
 
-**Artifact:** This doc + screenshots in this folder
-
 ---
 
 ## Evidence
 
-| # | Step | Friction | Screenshot |
-|---|------|----------|------------|
-| 1 | Homepage hero | `copy_confusion` | [step_1_homepage_trial_claim.png](./screenshots/step_1_homepage_trial_claim.png) |
-| 2 | Signup | `time_to_value` | [step_2_signup_pay_before_password.png](./screenshots/step_2_signup_pay_before_password.png) |
-| 3 | Pricing FAQ | `copy_confusion` | [step_3_pricing_no_trial_faq.png](./screenshots/step_3_pricing_no_trial_faq.png) |
-| 4 | Stripe checkout | `integration_wall` | [step_4_stripe_before_product.png](./screenshots/step_4_stripe_before_product.png) |
-
-**Step 1 — Homepage:** Hero pricing strip reads **"$19.95/mo · $195/yr · 7-day free trial · 14-day money-back guarantee"**.
-
-**Step 2 — Signup:** Subhead says *"Enter your email and pick a plan. You'll set your password after payment."* User must choose Monthly ($19.95) or Annual ($195) with no preview of product.
-
-**Step 3 — Pricing FAQ:** Under "Is there a free trial?" — *"No — Trade Journal AI doesn't offer a free trial. Your card is charged at signup… covered by 14-day money-back guarantee."*
-
-**Step 4 — Stripe:** Email + Monthly → immediate Stripe Checkout for Trade Journal AI subscription. No password, no dashboard, no sample journal until payment completes.
-
-**Step 5 (documented):** Post-payment, core value requires **broker API connect** (Bitunix / Hyperliquid / Binance) or CSV import per [brokers page](https://tradejournal.ai/brokers) — second activation wall after pay.
+| Step | What happened | Screenshot |
+|------|---------------|------------|
+| 1 | Homepage hero advertises "7-day free trial" alongside 14-day money-back guarantee | [step_1_homepage_trial_claim.png](./screenshots/step_1_homepage_trial_claim.png) |
+| 2 | Signup requires plan selection and payment before password; no product preview | [step_2_signup_pay_before_password.png](./screenshots/step_2_signup_pay_before_password.png) |
+| 3 | Pricing FAQ states there is no free trial — contradicts homepage | [step_3_pricing_no_trial_faq.png](./screenshots/step_3_pricing_no_trial_faq.png) |
+| 4 | Email + plan routes directly to Stripe checkout before dashboard access | [step_4_stripe_before_product.png](./screenshots/step_4_stripe_before_product.png) |
+| 5 | Post-payment, core value requires broker API connect or CSV import — second wall after pay | — |
 
 ---
 
@@ -66,7 +53,7 @@ As a **crypto trader evaluating journals**, I click **Get Started** expecting to
 - Fix copy drift: homepage, signup, pricing FAQ must say the same thing
 - Default first value = **one imported trade in journal UI**, not API keys
 - Broker connect becomes step 2, not gate 1
-- Measure funnel: `signup_start` → `payment_complete` → `first_trade_in_journal` → `broker_connected`
+- Measure funnel: signup start → payment complete → first trade in journal → broker connected
 
 ---
 
@@ -76,19 +63,14 @@ As a **crypto trader evaluating journals**, I click **Get Started** expecting to
 
 **Secondary:** Payment complete → broker connected within 7 days
 
-**How to measure:** Stripe webhook + in-app events on `csv_import_complete` and `broker_sync_first_run`
+**How to measure:** Stripe webhook + in-app events on csv import complete and broker sync first run
 
 ---
 
 ## Links
 
-| Asset | URL |
-|-------|-----|
-| Teardown (this doc) | https://github.com/rixter145/pm-activation-teardowns/blob/main/trade-journal-ai/teardown.md |
-| Playwright audit JSON | [audit_2026-07-06.json](./audit_2026-07-06.json) |
-| Product signup | https://tradejournal.ai/signup |
-| Pricing FAQ | https://tradejournal.ai/pricing |
-
----
-
-*Prepared by Ricardo Lo — value-first PM activation work.*
+| Resource | URL |
+|----------|-----|
+| Signup | https://tradejournal.ai/signup |
+| Pricing | https://tradejournal.ai/pricing |
+| Brokers | https://tradejournal.ai/brokers |
