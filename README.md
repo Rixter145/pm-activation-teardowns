@@ -1,23 +1,7 @@
-# PM Activation Teardowns
+# Deprecated — do not use
 
-Public activation funnel audits — problem, evidence, proposed fix.
+This monorepo exposed multiple company teardowns in one place. **Retired July 2026.**
 
-**Author:** [Ricardo Lo](https://ricardolo.online)
+Each activation teardown now lives in its **own public repo** (`activation-teardown-<company-slug>`).
 
-## What this is
-
-Each folder contains:
-
-- `teardown.md` — problem, evidence, proposed flow, metrics
-- `screenshots/` — activation captures
-
-## Published teardowns
-
-| Date | Company | Link |
-|------|---------|------|
-| 2026-07-06 | Trade Journal AI | [teardown.md](./trade-journal-ai/teardown.md) |
-| 2026-07-06 | Publora | [teardown.md](./publora/teardown.md) |
-
-## Contact
-
-ricardo.lo@outlook.com · [LinkedIn](https://linkedin.com/in/ricardo-lo)
+Do not link this repository in founder outreach.
