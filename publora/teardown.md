@@ -91,15 +91,3 @@ _Key changes:_
 | App signup | https://app.publora.com/signup |
 | API docs | https://docs.publora.com |
 | Founder LinkedIn | https://www.linkedin.com/in/sbulaev |
-
----
-
-## Outreach note (internal — do not paste into DM)
-
-Draft only after public URL is live. Target: Serge Bulaev (LinkedIn or s@cccrafts.ai). Lead with API/MCP positioning mismatch + proposed intent fork — no resume flex.
-
-```bash
-python scripts/eval_outreach_value_first.py \
-  --message-file Tracking/Outreach_Drafts/publora_founder_dm_2026-07-06.txt \
-  --artifact-url https://github.com/rixter145/pm-activation-teardowns/blob/main/publora/teardown.md
-```
