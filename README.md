@@ -19,6 +19,7 @@ These are **not** job applications. They're shipped work: "I walked your funnel,
 | Date | Company | Link |
 |------|---------|------|
 | 2026-07-06 | Trade Journal AI | [teardown.md](./trade-journal-ai/teardown.md) |
+| 2026-07-06 | Publora | [teardown.md](./publora/teardown.md) |
 
 ## Contact
 
